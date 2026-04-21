@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "url": "https://example.com/blog/how-to-build-a-content-engine",
+      "source_type_hint": "blog",
+      "notes": "Example competitor blog post"
+    },
+    {
+      "url": "https://example.com/changelog/v2-1-release",
+      "source_type_hint": "changelog",
+      "metadata": {
+        "competitor": "ExampleCo"
+      }
+    },
+    {
+      "url": "https://www.linkedin.com/posts/example_public-post-123",
+      "source_type_hint": "social_post"
+    }
+  ]
+}

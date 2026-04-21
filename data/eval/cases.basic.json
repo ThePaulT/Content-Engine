@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "id": "valid-schema",
+      "description": "Every classified record must validate against classified_content_item schema."
+    },
+    {
+      "id": "non-empty-topic",
+      "description": "Every classified record must have a non-empty topic field."
+    },
+    {
+      "id": "non-empty-payload-type",
+      "description": "Every classified record must have a non-empty payload_type field."
+    },
+    {
+      "id": "reusable-flags-present",
+      "description": "Each record must include reusable_for_kudwa, reusable_for_karl, reusable_for_sam boolean flags."
+    },
+    {
+      "id": "not-vague",
+      "description": "Classifier output must avoid vague labels and vague why_it_works summaries."
+    }
+  ]
+}

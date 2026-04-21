@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kudwa-lab/schemas/classified_content_item.schema.json",
+  "title": "classified_content_item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "item_id",
+    "source_record_id",
+    "classified_at",
+    "classifier_version",
+    "brand",
+    "source_type",
+    "topic",
+    "subtopic",
+    "target_audience",
+    "format",
+    "hook_type",
+    "payload_type",
+    "tone",
+    "why_it_works",
+    "weaknesses",
+    "reusable_for_kudwa",
+    "reusable_for_karl",
+    "reusable_for_sam"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "item_id": { "type": "string", "minLength": 1 },
+    "source_record_id": { "type": "string", "minLength": 1 },
+    "classified_at": { "type": "string", "format": "date-time" },
+    "classifier_version": { "type": "string", "minLength": 1 },
+    "brand": { "type": "string", "minLength": 1 },
+    "source_type": {
+      "type": "string",
+      "enum": ["blog", "product_page", "resource_hub", "case_study", "changelog", "social_post", "unknown"]
+    },
+    "topic": { "type": "string", "minLength": 3 },
+    "subtopic": { "type": "string", "minLength": 3 },
+    "target_audience": { "type": "string", "minLength": 5 },
+    "format": { "type": "string", "minLength": 3 },
+    "hook_type": { "type": "string", "minLength": 3 },
+    "payload_type": { "type": "string", "minLength": 3 },
+    "tone": { "type": "string", "minLength": 3 },
+    "why_it_works": { "type": "string", "minLength": 30 },
+    "weaknesses": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "reusable_for_kudwa": { "type": "boolean" },
+    "reusable_for_karl": { "type": "boolean" },
+    "reusable_for_sam": { "type": "boolean" }
+  }
+}
