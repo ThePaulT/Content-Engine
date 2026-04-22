@@ -5,6 +5,8 @@ export interface CliArgs {
   classified?: string;
   patterns?: string;
   account?: string;
+  recent?: string;
+  published?: string;
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -41,6 +43,18 @@ export function parseArgs(argv: string[]): CliArgs {
 
     if (token === "--account" && next) {
       parsed.account = next;
+      i += 1;
+      continue;
+    }
+
+    if (token === "--recent" && next) {
+      parsed.recent = next;
+      i += 1;
+      continue;
+    }
+
+    if (token === "--published" && next) {
+      parsed.published = next;
       i += 1;
       continue;
     }

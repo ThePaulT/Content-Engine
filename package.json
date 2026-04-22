@@ -15,6 +15,7 @@
     "eval": "ts-node src/cli.ts eval",
     "patterns": "ts-node src/cli.ts patterns",
     "ideas": "ts-node src/cli.ts ideas",
+    "score": "ts-node src/cli.ts score",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

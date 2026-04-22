@@ -5,6 +5,7 @@ import { runClassify } from "./classify/runClassify";
 import { runEval } from "./eval/runEval";
 import { runPatternMiner } from "./patterns/runPatternMiner";
 import { runIdeaTransformer } from "./ideas/runIdeaTransformer";
+import { runIdeaScoring } from "./scoring/runIdeaScoring";
 
 function printHelp(): void {
   console.log(`Kudwa Competitive Content Lab CLI
@@ -14,7 +15,8 @@ Usage:
   kudwa-lab classify --input <source-records-jsonl>
   kudwa-lab eval --input <classified-jsonl>
   kudwa-lab patterns --input <classified-jsonl>
-  kudwa-lab ideas --classified <classified-jsonl> --patterns <pattern-report-json> --account <kudwa|karl|sam>`);
+  kudwa-lab ideas --classified <classified-jsonl> --patterns <pattern-report-json> --account <kudwa|karl|sam>
+  kudwa-lab score --input <ideas-report-json> [--recent <recent-ideas-json>] [--published <published-history-json>]`);
 }
 
 function main(): void {
@@ -83,6 +85,18 @@ function main(): void {
     const result = runIdeaTransformer(args.classified, args.patterns, args.account);
     console.log("Idea transformer complete.");
     console.log(`Ideas generated: ${result.totalIdeas}`);
+    console.log(`Output: ${result.outputPath}`);
+    return;
+  }
+
+  if (args.command === "score") {
+    if (!args.input) {
+      throw new Error("score command requires --input <ideas-report-json>.");
+    }
+
+    const result = runIdeaScoring(args.input, args.recent, args.published);
+    console.log("Idea scoring complete.");
+    console.log(`Ideas scored: ${result.count}`);
     console.log(`Output: ${result.outputPath}`);
     return;
   }
