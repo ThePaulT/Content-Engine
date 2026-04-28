@@ -1,0 +1,29 @@
+{
+  "name": "kudwa-competitive-content-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Phase 1 vertical slice for competitor content ingestion and classification scaffolding.",
+  "type": "commonjs",
+  "bin": {
+    "kudwa-lab": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "ts-node src/cli.ts",
+    "ingest": "ts-node src/cli.ts ingest",
+    "classify": "ts-node src/cli.ts classify",
+    "eval": "ts-node src/cli.ts eval",
+    "patterns": "ts-node src/cli.ts patterns",
+    "ideas": "ts-node src/cli.ts ideas",
+    "score": "ts-node src/cli.ts score",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kudwa-lab/schemas/pattern_report.schema.json",
+  "title": "pattern_report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "input_path",
+    "total_items",
+    "recurring_topics",
+    "recurring_formats",
+    "recurring_hook_styles",
+    "strong_patterns",
+    "weak_or_overused_patterns",
+    "white_space_opportunities_for_kudwa"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "input_path": { "type": "string", "minLength": 1 },
+    "total_items": { "type": "integer", "minimum": 0 },
+    "recurring_topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic", "count", "share"],
+        "properties": {
+          "topic": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "share": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "recurring_formats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["format", "count", "share"],
+        "properties": {
+          "format": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "share": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "recurring_hook_styles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hook_style", "count", "share"],
+        "properties": {
+          "hook_style": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "share": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "strong_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pattern_key", "count", "why_strong"],
+        "properties": {
+          "pattern_key": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "why_strong": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "weak_or_overused_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pattern_key", "count", "why_weak_or_overused"],
+        "properties": {
+          "pattern_key": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "why_weak_or_overused": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "white_space_opportunities_for_kudwa": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["opportunity", "rationale"],
+        "properties": {
+          "opportunity": { "type": "string", "minLength": 1 },
+          "rationale": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
